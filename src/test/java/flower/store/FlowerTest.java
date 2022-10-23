@@ -30,4 +30,11 @@ public class FlowerTest {
         flower.setColor(color);
         Assertions.assertEquals("#FF0000", flower.getColor());
     }
+
+    @Test
+    public void testType() {
+        FlowerType type = FlowerType.CHAMOMILE;
+        flower.setFlowerType(type);
+        Assertions.assertEquals(FlowerType.CHAMOMILE, flower.getFlowerType());
+    }
 }
