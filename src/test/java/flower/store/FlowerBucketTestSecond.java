@@ -5,7 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Assertions;
 
 
-public class FlowerBucketTest {
+public class FlowerBucketTestSecond {
     /**
      * Test variable.
      */
