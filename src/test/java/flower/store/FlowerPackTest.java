@@ -9,37 +9,35 @@ public class FlowerPackTest {
     /**
      * Test variable.
      */
-    public static final int TESTNUM1 = 2;
+    public static final int TESTNUM_A = 2;
     /**
      * Test variable.
      */
-    public static final int TESTNUM2 = 30;
+    public static final int TESTNUM_B = 30;
+    /**
+     * Test variable.
+     */
+    public static final int TESTNUM_C = 5;
+    /**
+     * Test result variable.
+     */
+    public static final int TESTNUM_D = 150;
     /**
      * The flower variable.
      */
-    private Flower flower = new Flower(TESTNUM1, FlowerColor.BLUE,
-            TESTNUM2, FlowerType.TULIP);
+    private Flower flower = new Flower(TESTNUM_A, FlowerColor.BLUE,
+            TESTNUM_B, FlowerType.TULIP);
     /**
      * The flower pack variable.
      */
     private FlowerPack flowerPack;
-
-    /**
-     * Test variable.
-     */
-    public static final int TESTNUM3 = 5;
     /**
      * Setting new object of flower pack.
      */
     @BeforeEach
     public void init() {
-        flowerPack = new FlowerPack(flower, TESTNUM3);
+        flowerPack = new FlowerPack(flower, TESTNUM_C);
     }
-
-    /**
-     * Test result variable.
-     */
-    public static final int TESTNUM4 = 150;
     /**
      * The result price of flower pack.
      */
@@ -53,13 +51,13 @@ public class FlowerPackTest {
      */
     @Test
     public void testAmount() {
-        Assertions.assertEquals(TESTNUM3, flowerPack.getAmount());
+        Assertions.assertEquals(TESTNUM_C, flowerPack.getAmount());
     }
     /**
      * The test of price of the flower pack.
      */
     @Test
     public void testPrice() {
-        Assertions.assertEquals(TESTNUM4, flowerPack.getPrice());
+        Assertions.assertEquals(TESTNUM_D, flowerPack.getPrice());
     }
 }
