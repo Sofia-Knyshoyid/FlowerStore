@@ -8,50 +8,50 @@ public class StoreTest {
     /**
      * Test variable.
      */
-    public static final int TESTNUM1 = 2;
+    public static final int TESTNUM_A = 2;
     /**
      * Test variable.
      */
-    public static final int TESTNUM2 = 30;
+    public static final int TESTNUM_B = 30;
     /**
      * Test variable.
      */
-    public static final int TESTNUM3 = 4;
+    public static final int TESTNUM_C = 4;
     /**
      * Test variable.
      */
-    public static final int TESTNUM4 = 5;
+    public static final int TESTNUM_D = 5;
     /**
      * Test variable.
      */
-    public static final int TESTNUM5 = 40;
+    public static final int TESTNUM_E = 40;
     /**
      * Test variable.
      */
-    public static final int TESTNUM6 = 9;
+    public static final int TESTNUM_F = 9;
     /**
      * Flower variable.
      */
-    private Flower flower1 = new Flower(TESTNUM1,
-            FlowerColor.BLUE, TESTNUM2, FlowerType.TULIP);
+    private Flower flowerA = new Flower(TESTNUM_A,
+            FlowerColor.BLUE, TESTNUM_B, FlowerType.TULIP);
     /**
      * Setting new flower.
      */
-    private Flower flower2 = new Flower(TESTNUM3,
-            FlowerColor.RED, TESTNUM2, FlowerType.CHAMOMILE);
+    private Flower flowerB = new Flower(TESTNUM_C,
+            FlowerColor.RED, TESTNUM_B, FlowerType.CHAMOMILE);
     /**
      * Setting new flower.
      */
-    private Flower flower3 = new Flower(TESTNUM3,
-            FlowerColor.RED, TESTNUM2, FlowerType.ROSE);
+    private Flower flowerC = new Flower(TESTNUM_C,
+            FlowerColor.RED, TESTNUM_B, FlowerType.ROSE);
     /**
      * Setting new flower pack.
      */
-    private FlowerPack flowerPack1 = new FlowerPack(flower1, TESTNUM4);
+    private FlowerPack flowerPackA = new FlowerPack(flowerA, TESTNUM_D);
     /**
      * Setting new flower pack.
      */
-    private FlowerPack flowerPack2 = new FlowerPack(flower2, TESTNUM1);
+    private FlowerPack flowerPackB = new FlowerPack(flowerB, TESTNUM_A);
     /**
      * Setting new store.
      */
@@ -63,72 +63,71 @@ public class StoreTest {
     @BeforeEach
     public void init() {
         store = new Store();
-        store.addFlower(TESTNUM1, FlowerColor.BLUE, TESTNUM2,
+        store.addFlower(TESTNUM_A, FlowerColor.BLUE, TESTNUM_B,
                 FlowerType.TULIP);
-        store.addFlower(TESTNUM3, FlowerColor.RED, TESTNUM2,
+        store.addFlower(TESTNUM_C, FlowerColor.RED, TESTNUM_B,
                 FlowerType.CHAMOMILE);
-        store.addFlowerPack(flower2, TESTNUM1);
-        store.addFlowerBucket(flowerPack1, TESTNUM5);
-        store.addFlowerBucket(flowerPack2, TESTNUM6);
+        store.addFlowerPack(flowerB, TESTNUM_A);
+        store.addFlowerBucket(flowerPackA, TESTNUM_E);
+        store.addFlowerBucket(flowerPackB, TESTNUM_F);
     }
     /**
      * Testing flower 1.
      */
     @Test
-    public void testFlower1() {
-        Flower flowerFound = store.search(flower1);
-        Assertions.assertEquals(flower1.getColor(),
+    public void testFlowerA() {
+        Flower flowerFound = store.search(flowerA);
+        Assertions.assertEquals(flowerA.getColor(),
                 flowerFound.getColor());
-        Assertions.assertEquals(flower1.getSepalLength(),
+        Assertions.assertEquals(flowerA.getSepalLength(),
                 flowerFound.getSepalLength());
-        Assertions.assertEquals(flower1.getFlowerType(),
+        Assertions.assertEquals(flowerA.getFlowerType(),
                 flowerFound.getFlowerType());
-        Assertions.assertEquals(flower1.getPrice(),
+        Assertions.assertEquals(flowerA.getPrice(),
                 flowerFound.getPrice());
     }
     /**
      * Testing flower 2.
      */
     @Test
-    public void testFlower2() {
-        Flower flowerFound = store.search(flower2);
-        Assertions.assertEquals(flower2.getColor(),
+    public void testFlowerB() {
+        Flower flowerFound = store.search(flowerB);
+        Assertions.assertEquals(flowerB.getColor(),
                 flowerFound.getColor());
-        Assertions.assertEquals(flower2.getSepalLength(),
+        Assertions.assertEquals(flowerB.getSepalLength(),
                 flowerFound.getSepalLength());
-        Assertions.assertEquals(flower2.getFlowerType(),
+        Assertions.assertEquals(flowerB.getFlowerType(),
                 flowerFound.getFlowerType());
-        Assertions.assertEquals(flower2.getPrice(),
+        Assertions.assertEquals(flowerB.getPrice(),
                 flowerFound.getPrice());
     }
     /**
      * Testing flower 3.
      */
     @Test
-    public void testFlower3() {
-        Flower flowerFound = store.search(flower3);
+    public void testFlowerC() {
+        Flower flowerFound = store.search(flowerC);
         Assertions.assertEquals(null, flowerFound);
     }
     /**
      * Testing flower pack 1.
      */
     @Test
-    public void testPack1() {
-        FlowerPack flowerPackFound = store.search(flowerPack1);
+    public void testPackA() {
+        FlowerPack flowerPackFound = store.search(flowerPackA);
         Assertions.assertEquals(flowerPackFound, flowerPackFound);
     }
     /**
      * Testing flower pack 2.
      */
     @Test
-    public void testPack2() {
-        FlowerPack flowerPackFound = store.search(flowerPack2);
-        Assertions.assertEquals(flowerPack2.getAmount(),
+    public void testPackB() {
+        FlowerPack flowerPackFound = store.search(flowerPackB);
+        Assertions.assertEquals(flowerPackB.getAmount(),
                 flowerPackFound.getAmount());
-        Assertions.assertEquals(flowerPack2.getFlower().getSepalLength(),
+        Assertions.assertEquals(flowerPackB.getFlower().getSepalLength(),
                 flowerPackFound.getFlower().getSepalLength());
-        Assertions.assertEquals(flowerPack2.getPrice(),
+        Assertions.assertEquals(flowerPackB.getPrice(),
                 flowerPackFound.getPrice());
     }
 }
-
