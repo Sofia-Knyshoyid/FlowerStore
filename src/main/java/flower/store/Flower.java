@@ -44,7 +44,13 @@ public class Flower {
      * The constructor for a flower with no arguments.
      */
     public Flower() { }
-
+    /**
+     * The constructor for a flower with type.
+     * @param type defines type
+     */
+    public Flower(final FlowerType type) {
+        flowerType = type;
+    }
     /**
      * @return the color of the flower.
      */
