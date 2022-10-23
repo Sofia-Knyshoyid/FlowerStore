@@ -1,72 +1,48 @@
 package flower.store;
 
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
+import java.util.Random;
 
 public class FlowerBucketTest {
     /**
-     * Test variable.
+     * The random generator.
      */
-    public static final int TESTNUM_A = 2;
+    private static final Random RANDOM_GENERATOR = new Random();
     /**
-     * Test variable.
+     * The maximal quantity.
      */
-    public static final int TESTNUM_B = 30;
+    private static final int MAX_QUANTITY = 1000;
     /**
-     * Test variable.
+     * The maximal price.
      */
-    public static final int TESTNUM_C = 5;
+    private static final int MAX_PRICE = 100;
     /**
-     * Test variable.
-     */
-    public static final int TESTNUM_D = 3;
-    /**
-     * Test variable.
-     */
-    public static final int TESTNUM_E = 450;
-    /**
-     * The flower variable.
-     */
-    private Flower flower = new Flower(TESTNUM_A,
-            FlowerColor.BLUE, TESTNUM_B, FlowerType.TULIP);
-    /**
-     * The flower pack variable.
-     */
-    private FlowerPack flowerPack = new FlowerPack(flower, TESTNUM_C);
-    /**
-     * The flower bucket variable.
+     * The flower bucket var.
      */
     private FlowerBucket flowerBucket;
 
     /**
-     * Creating flower bucket object.
+     * Set flower bucket var.
      */
     @BeforeEach
     public void init() {
-        flowerBucket = new FlowerBucket(flowerPack, TESTNUM_D);
+        flowerBucket = new FlowerBucket();
     }
+
     /**
-     * Testing flower pack.
-     */
-    @Test
-    public void testFlowerPack() {
-        Assertions.assertEquals(FlowerType.TULIP,
-                flowerBucket.getFlowerPack().getFlower().getFlowerType());
-    }
-    /**
-     * Testing the amount.
-     */
-    @Test
-    public void testAmount() {
-        Assertions.assertEquals(TESTNUM_D, flowerBucket.getAmount());
-    }
-    /**
-     * Testing the price.
+     * Test price.
      */
     @Test
     public void testPrice() {
-        Assertions.assertEquals(TESTNUM_E, flowerBucket.getPrice());
+        int price = RANDOM_GENERATOR.nextInt(MAX_PRICE);
+        int quantity = RANDOM_GENERATOR.nextInt(MAX_QUANTITY);
+        Flower flower = new Rose();
+        flower.setPrice(price);
+        FlowerPack flowerPack = new FlowerPack(flower, quantity);
+        flowerBucket.add(flowerPack);
+        Assertions.assertEquals(price * quantity, flowerBucket.getPrice());
     }
 }
