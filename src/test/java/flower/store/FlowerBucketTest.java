@@ -9,32 +9,32 @@ public class FlowerBucketTest {
     /**
      * Test variable.
      */
-    public static final int TESTNUM1 = 2;
+    public static final int TESTNUM_A = 2;
     /**
      * Test variable.
      */
-    public static final int TESTNUM2 = 30;
+    public static final int TESTNUM_B = 30;
     /**
      * Test variable.
      */
-    public static final int TESTNUM3 = 5;
+    public static final int TESTNUM_C = 5;
     /**
      * Test variable.
      */
-    public static final int TESTNUM4 = 3;
+    public static final int TESTNUM_D = 3;
     /**
      * Test variable.
      */
-    public static final int TESTNUM5 = 450;
+    public static final int TESTNUM_E = 450;
     /**
      * The flower variable.
      */
-    private Flower flower = new Flower(TESTNUM1,
-            FlowerColor.BLUE, TESTNUM2, FlowerType.TULIP);
+    private Flower flower = new Flower(TESTNUM_A,
+            FlowerColor.BLUE, TESTNUM_B, FlowerType.TULIP);
     /**
      * The flower pack variable.
      */
-    private FlowerPack flowerPack = new FlowerPack(flower, TESTNUM3);
+    private FlowerPack flowerPack = new FlowerPack(flower, TESTNUM_C);
     /**
      * The flower bucket variable.
      */
@@ -45,7 +45,7 @@ public class FlowerBucketTest {
      */
     @BeforeEach
     public void init() {
-        flowerBucket = new FlowerBucket(flowerPack, TESTNUM4);
+        flowerBucket = new FlowerBucket(flowerPack, TESTNUM_D);
     }
     /**
      * Testing flower pack.
@@ -59,16 +59,14 @@ public class FlowerBucketTest {
      * Testing the amount.
      */
     @Test
-    public void testAmount()
-    {
-        Assertions.assertEquals(TESTNUM4, flowerBucket.getAmount());
+    public void testAmount() {
+        Assertions.assertEquals(TESTNUM_D, flowerBucket.getAmount());
     }
     /**
      * Testing the price.
      */
     @Test
-    public void testPrice()
-    {
-        Assertions.assertEquals(TESTNUM5, flowerBucket.getPrice());
+    public void testPrice() {
+        Assertions.assertEquals(TESTNUM_E, flowerBucket.getPrice());
     }
 }
